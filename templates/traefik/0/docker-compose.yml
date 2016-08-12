@@ -1,5 +1,5 @@
 traefik:
-  image: emilevauge/traefik:latest
+  image: containous/traefik:latest 
   ports:
   - ${LISTEN_PORT}:80/tcp
   labels:
