@@ -1,6 +1,6 @@
 .catalog:
   name: "ELK Stack"
-  version: "1.0"
+  version: "5.0"
   description: "ELK Stack"
   uuid: elk-stack-0sdaf7g6-0
   minimum_rancher_version: v0.51.0
