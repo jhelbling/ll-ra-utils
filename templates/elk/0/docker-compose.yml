@@ -1,0 +1,28 @@
+elasticsearch:
+  image: elasticsearch:2.3.5
+
+logstash:
+  image: logstash:2.3
+  command: -f /etc/logstash.conf
+  environment:
+    - LOGSPOUT=ignore
+  links:
+    - elasticsearch
+
+kibana:
+  image: kibana:4.5
+  environment:
+    - VIRTUAL_HOST=${vhost}
+    - ELASTICSEARCH_URL=http://elasticsearch:9200
+  links:
+    - elasticsearch
+
+logspout:
+  image: gliderlabs/logspout:v3.1
+  environment:
+    - DEBUG=true
+  volumes:
+    - /var/run/docker.sock:/var/run/docker.sock
+  command: syslog://logstash:5000
+  links:
+    - logstash
