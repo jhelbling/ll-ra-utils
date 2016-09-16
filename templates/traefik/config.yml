@@ -1,4 +1,4 @@
 name: Traefik
 description: 'Reverse proxy'
 category: Utils
-version: latest
+version: alpine-traefik:1.0.2-6 
